@@ -2,10 +2,11 @@
 
 Changes made in this project:
 
-1. In the **MauiProgram.cs** file and added the following attribute above the namespace declaration: `[assembly: XamlProcessing(XamlInflator.SourceGen)]`. Technically this could be in any file, **MauiProgram.cs** seems like a logical place.
-2. In each ***.xaml.cs** file, in the constructor changed `InitializeComponent();` to `InitializeComponentSourceGen();`.
-3. In the .NET MAUI csproj file added `<EnablePreviewFeatures>true</EnablePreviewFeatures>` to any `<PropertyGroup>` node. Needed because the source generation feature is marked as a preview feature right now.
-4. Optionally, in the csproj file add `<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>` to any `<PropertyGroup>` node. This will output the generated code under **obj/{Configuration}/{TFM}/{Platform}/generated/Microsoft.Maui.Controls.SourceGen/Microsoft.Maui.Controls.SourceGen.CodeBehindGenerator/**. The ***.xsg.cs** files are the ones you are looking for.
+1. In each ***.xaml.cs** file, except **App.xaml.cs**, added the following attribute above the namespace declaration: `[XamlProcessing(XamlInflator.SourceGen)]`.
+   1. You should also be able to do this on the assembly level (like: `[assembly: XamlProcessing(XamlInflator.SourceGen)]`) in for instance the **MauiProgram.cs** above the namespace declaration. But a bug at the time of writing is preventing this right now.
+3. In each ***.xaml.cs** file, in the constructor changed `InitializeComponent();` to `InitializeComponentSourceGen();`.
+4. In the .NET MAUI csproj file added `<EnablePreviewFeatures>true</EnablePreviewFeatures>` to any `<PropertyGroup>` node. Needed because the source generation feature is marked as a preview feature right now.
+5. Optionally, in the csproj file add `<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>` to any `<PropertyGroup>` node. This will output the generated code under **obj/{Configuration}/{TFM}/{Platform}/generated/Microsoft.Maui.Controls.SourceGen/Microsoft.Maui.Controls.SourceGen.CodeBehindGenerator/**. The ***.xsg.cs** files are the ones you are looking for.
 
 ## Using it on an existing project
 
