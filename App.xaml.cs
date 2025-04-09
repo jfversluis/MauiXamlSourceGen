@@ -4,7 +4,7 @@ public partial class App : Application
 {
 	public App()
 	{
-		InitializeComponentSourceGen();
+		InitializeComponent();
 	}
 
 	protected override Window CreateWindow(IActivationState? activationState)
