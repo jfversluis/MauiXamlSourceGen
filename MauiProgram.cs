@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
+[assembly: XamlProcessing(XamlInflator.SourceGen)]
 namespace MauiXamlSourceGen;
 
 public static class MauiProgram

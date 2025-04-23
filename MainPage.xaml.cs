@@ -1,13 +1,12 @@
 ﻿namespace MauiXamlSourceGen;
 
-[XamlProcessing(XamlInflator.SourceGen)]
 public partial class MainPage : ContentPage
 {
 	int count = 0;
 
 	public MainPage()
 	{
-		InitializeComponentSourceGen();
+		InitializeComponent();
 	}
 
 	private void OnCounterClicked(object? sender, EventArgs e)
